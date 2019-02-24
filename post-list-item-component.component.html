@@ -1,0 +1,25 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': this.post.loveIts > 0,
+                'list-group-item-danger': this.post.loveIts < 0}"
+        class="position-relative">
+   <div >
+   <div class="date" style="float:right">{{ this.post.created_at | date: 'short' }}</div>
+   <h2 tyle="float:left">{{ this.post.title }}</h2>
+   </div>
+   <p>{{ this.post.content }}</p>
+   <button class="btn btn-success"
+           (click)="onILike()">I love it!  {{this.post.loveIts}}</button>
+           &nbsp;
+   <button class="btn btn-danger"
+           (click)="onIDontLike()">I don't love it!  {{this.post.loveIts*-1}}</button>
+           <br  />
+           <form action="/html/tags/html_form_tag_action.cfm" method="post">
+<div>
+   <br  />
+<textarea style="width:92%;height:140px;padding:2%;font-size:1.2em;border:12px inset #6DB72C;overflow-y:scroll;height:100px;resize: none;overflow: scroll;" placeholder="Commenter ici !..." name="comments" id="comments"  >
+
+</textarea>
+</div>
+<input type="button" value="Commenter">
+</form>
+</li>
